@@ -566,7 +566,7 @@ export default function WorkspaceClient() {
         </Link>
       </header>
 
-      <div className="workspace-mobile-switch md:hidden">
+      <div className="workspace-mobile-switch flex md:hidden">
         {(["compose", "output"] as MobileView[]).map((view) => (
           <button
             key={view}
