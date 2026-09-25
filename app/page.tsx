@@ -248,12 +248,12 @@ export default function Home() {
 
       <section
         id="about"
-        className="marketing-moment relative flex min-h-[88svh] items-center overflow-hidden bg-[#F5F5F7] text-[#0B0D12]"
+        className="marketing-moment relative flex min-h-[80svh] items-center overflow-hidden bg-[#F5F5F7] text-[#0B0D12]"
       >
         <div className="marketing-grid" aria-hidden="true" />
         <div className="marketing-aura" aria-hidden="true" />
 
-        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-8 sm:py-32 lg:px-12 xl:px-16">
+        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32 xl:px-16">
           <p className="reveal-on-scroll text-[10px] font-semibold uppercase tracking-[0.2em] text-black/30 sm:text-xs">
             From ambiguity to alignment
           </p>
@@ -279,7 +279,7 @@ export default function Home() {
 
       <section
         id="workflow"
-        className="relative mx-auto max-w-[1440px] px-5 py-24 sm:px-8 sm:py-32 lg:px-12 lg:py-40 xl:px-16"
+        className="relative mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32 xl:px-16"
       >
         <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
           <div>
@@ -290,7 +290,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <p className="max-w-xl text-sm leading-7 text-white/40 sm:text-base lg:justify-self-end">
+          <p className="max-w-xl text-[13px] leading-6 text-white/42 sm:text-base sm:leading-7 lg:justify-self-end">
             Briefly AI behaves like a focused planning tool, not a blank
             chatbot. Give it intent; get back a predictable software plan.
           </p>
@@ -304,7 +304,7 @@ export default function Home() {
                 <h3 className="text-base font-semibold tracking-tight text-white sm:text-2xl">
                   {step.title}
                 </h3>
-                <p className="mt-3 max-w-sm text-[11px] leading-5 text-white/34 sm:text-sm sm:leading-6">
+                <p className="mt-3 max-w-sm text-xs leading-5 text-white/38 sm:text-sm sm:leading-6">
                   {step.body}
                 </p>
               </div>
@@ -314,14 +314,14 @@ export default function Home() {
       </section>
 
       <section id="outputs" className="relative">
-        <div className="mx-auto max-w-[1440px] px-5 py-24 sm:px-8 sm:py-32 lg:px-12 lg:py-40 xl:px-16">
+        <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32 xl:px-16">
           <div className="mx-auto max-w-5xl text-center">
             <p className="section-kicker">Structured output</p>
             <h2 className="section-title mt-4">
               Useful artifacts,
               <span className="block text-white/26">not another AI essay.</span>
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/38 sm:text-base">
+            <p className="mx-auto mt-6 max-w-2xl text-[13px] leading-6 text-white/42 sm:text-base sm:leading-7">
               One focused workflow gives product thinking a shape your team can
               review, refine, and actually build from.
             </p>
@@ -402,7 +402,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-[1440px] px-5 pb-24 pt-8 sm:px-8 sm:pb-32 lg:px-12 lg:pb-40 xl:px-16">
+      <section className="relative mx-auto max-w-[1440px] px-5 pb-20 pt-4 sm:px-8 sm:pb-28 lg:px-12 lg:pb-32 xl:px-16">
         <div className="liquid-glass cta-panel relative overflow-hidden rounded-[2rem] px-6 py-16 text-center sm:px-10 sm:py-24 lg:px-16 lg:py-28">
           <div className="cta-glow" aria-hidden="true" />
 
