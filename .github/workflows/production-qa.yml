@@ -47,3 +47,46 @@ jobs:
       - name: Production build
         run: npm run build
 
+      - name: Production smoke tests
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          npm start > /tmp/briefly-ai.log 2>&1 &
+          APP_PID=$!
+          trap 'kill "$APP_PID" 2>/dev/null || true' EXIT
+
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3000/ > /dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/briefly-ai.log
+            exit 1
+          fi
+
+          curl -fsS http://127.0.0.1:3000/generate > /dev/null
+
+          invalid_status=$(curl -sS -o /tmp/invalid.json -w '%{http_code}'             -H 'Content-Type: application/json'             -H 'x-forwarded-for: 198.51.100.10'             -X POST http://127.0.0.1:3000/api/generate             --data '{"idea":"tiny"}')
+          test "$invalid_status" = "400"
+
+          malformed_status=$(curl -sS -o /tmp/malformed.json -w '%{http_code}'             -H 'Content-Type: application/json'             -H 'x-forwarded-for: 198.51.100.11'             -X POST http://127.0.0.1:3000/api/generate             --data '{')
+          test "$malformed_status" = "400"
+
+          node -e 'process.stdout.write(JSON.stringify({idea:"a".repeat(70000)}))' > /tmp/large.json
+          large_status=$(curl -sS -o /tmp/large-response.json -w '%{http_code}'             -H 'Content-Type: application/json'             -H 'x-forwarded-for: 198.51.100.12'             -X POST http://127.0.0.1:3000/api/generate             --data-binary @/tmp/large.json)
+          test "$large_status" = "413"
+
+          for attempt in $(seq 1 12); do
+            status=$(curl -sS -o /dev/null -w '%{http_code}'               -H 'Content-Type: application/json'               -H 'x-forwarded-for: 198.51.100.13'               -X POST http://127.0.0.1:3000/api/generate               --data '{"idea":"tiny"}')
+            test "$status" = "400"
+          done
+
+          limited_status=$(curl -sS -o /tmp/limited.json -w '%{http_code}'             -H 'Content-Type: application/json'             -H 'x-forwarded-for: 198.51.100.13'             -X POST http://127.0.0.1:3000/api/generate             --data '{"idea":"tiny"}')
+          test "$limited_status" = "429"
+
