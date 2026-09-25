@@ -160,9 +160,9 @@ export default function Home() {
             <div className="hero-enter hero-enter-5 mt-9 flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium tracking-tight text-white/38">
               <span>No account required</span>
               <span className="hidden sm:inline">•</span>
-              <span>No database in the MVP</span>
-              <span className="hidden sm:inline">•</span>
               <span>Structured AI output</span>
+              <span className="hidden sm:inline">•</span>
+              <span>Built for software ideas</span>
             </div>
           </div>
 
@@ -203,7 +203,19 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              <div className="mt-3 flex min-h-20 items-center justify-between rounded-[1.2rem] border border-white/[0.06] bg-[#151820] px-4 sm:hidden">
+                <div>
+                  <span className="preview-kicker">Structured output</span>
+                  <p className="mt-1 text-sm font-semibold tracking-tight text-white/85">
+                    5 planning artifacts ready
+                  </p>
+                </div>
+                <div className="grid size-10 place-items-center rounded-full bg-[#6E5CFF]/15 text-[#6E5CFF]">
+                  <SparkIcon className="size-5" />
+                </div>
+              </div>
+
+              <div className="mt-3 hidden gap-2 sm:grid sm:grid-cols-2">
                 <div className="preview-card preview-card-main sm:row-span-2">
                   <span className="preview-kicker">01 · Project Brief</span>
                   <p className="mt-4 text-lg font-semibold tracking-tight text-white/90">
@@ -357,26 +369,26 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-4 lg:mt-20 lg:grid-cols-12 lg:gap-6">
+          <div className="mt-10 grid grid-cols-3 gap-2 sm:mt-14 sm:gap-4 lg:mt-20 lg:grid-cols-12 lg:gap-6">
             {outputGroups.map((group) => (
               <article
                 key={group.eyebrow}
-                className={`relative overflow-hidden rounded-[2rem] border border-white/[0.07] bg-[#101218] p-6 sm:p-8 lg:p-10 ${group.className}`}
+                className={`relative min-h-[170px] overflow-hidden rounded-[1.35rem] border border-white/[0.07] bg-[#101218] p-3 sm:min-h-0 sm:rounded-[2rem] sm:p-8 lg:p-10 ${group.className}`}
               >
                 <div
                   className="absolute -right-20 -top-20 size-52 rounded-full bg-[#6E5CFF]/10 blur-3xl"
                   aria-hidden="true"
                 />
-                <span className="relative text-xs font-semibold uppercase tracking-[0.16em] text-[#8E80FF]">
+                <span className="relative text-[9px] font-semibold uppercase tracking-[0.12em] text-[#8E80FF] sm:text-xs sm:tracking-[0.16em]">
                   {group.eyebrow}
                 </span>
-                <h3 className="relative mt-5 max-w-xl text-2xl font-semibold leading-tight tracking-[-0.04em] text-white sm:text-3xl">
+                <h3 className="relative mt-4 max-w-xl text-[13px] font-semibold leading-[1.15] tracking-[-0.03em] text-white sm:mt-5 sm:text-3xl sm:tracking-[-0.04em]">
                   {group.title}
                 </h3>
-                <p className="relative mt-4 max-w-xl text-sm leading-7 text-white/40">
+                <p className="relative mt-4 hidden max-w-xl text-sm leading-7 text-white/40 sm:block">
                   {group.copy}
                 </p>
-                <div className="relative mt-8 flex flex-wrap gap-2">
+                <div className="relative mt-5 hidden flex-wrap gap-2 sm:mt-8 sm:flex">
                   {group.items.map((item) => (
                     <span
                       key={item}
@@ -386,6 +398,9 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
+                <span className="relative mt-6 block text-[9px] leading-4 text-white/30 sm:hidden">
+                  {group.items[0]}
+                </span>
               </article>
             ))}
           </div>
