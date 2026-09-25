@@ -96,10 +96,10 @@ export default function Home() {
           </div>
 
           <a
-            href="#workflow"
+            href="/generate"
             className="group inline-flex min-h-11 items-center gap-2 rounded-full bg-[#F5F5F7] px-4 text-xs font-semibold tracking-tight text-[#0B0D12] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6E5CFF]"
           >
-            See the flow
+            Open generator
             <ArrowIcon className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
           </a>
         </nav>
@@ -126,10 +126,10 @@ export default function Home() {
 
             <div className="hero-enter hero-enter-4 mt-8 flex flex-wrap items-center gap-3">
               <a
-                href="#workflow"
+                href="/generate"
                 className="group inline-flex min-h-11 items-center gap-2 rounded-full bg-[#6E5CFF] px-5 text-sm font-semibold tracking-tight text-white transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(110,92,255,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
-                See how it works
+                Start generating
                 <ArrowIcon className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </a>
               <a
@@ -417,10 +417,10 @@ export default function Home() {
               implementation.
             </p>
             <a
-              href="#top"
+              href="/generate"
               className="group mt-9 inline-flex min-h-11 items-center gap-2 rounded-full bg-[#F5F5F7] px-5 text-sm font-semibold tracking-tight text-[#0B0D12] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6E5CFF]"
             >
-              Back to the idea
+              Start generating
               <ArrowIcon className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
             </a>
           </div>
