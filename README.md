@@ -1,5 +1,7 @@
 # Briefly AI
 
+[![Production QA](https://github.com/MRRzkS/briefly-ai/actions/workflows/production-qa.yml/badge.svg)](https://github.com/MRRzkS/briefly-ai/actions/workflows/production-qa.yml)
+
 > **Turn an idea into a structured software plan.**
 
 Briefly AI is a lightweight AI-powered SaaS that transforms rough software ideas into structured project briefs, functional requirements, user stories, acceptance criteria, and task breakdowns using structured AI output.
@@ -46,7 +48,7 @@ Task Breakdown
 - **Framework:** Next.js
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
-- **AI:** OpenRouter API and/or Google Gemini
+- **AI:** OpenRouter API (provider-agnostic model selection)
 - **Validation:** Zod
 - **Persistence:** Browser `localStorage` only
 - **Deployment:** Vercel
@@ -58,7 +60,7 @@ User Input
    ↓
 Next.js UI
    ↓
-Server Action / API Route
+Server-side API Route
    ↓
 AI Provider
    ↓
@@ -100,7 +102,7 @@ Primary keyword: **AI Project Brief Generator**
 ```bash
 git clone https://github.com/MRRzkS/briefly-ai.git
 cd briefly-ai
-npm install
+npm ci
 npm run dev
 ```
 
@@ -122,13 +124,27 @@ The provider request runs server-side through `/api/generate`; API keys are neve
 
 Never commit secrets or API keys.
 
+## Production QA
+
+GitHub Actions validates every push to `main` with:
+
+- Reproducible `npm ci` install from `package-lock.json`
+- TypeScript type checking
+- ESLint
+- Optimized Next.js production build
+- Production server smoke tests for `/` and `/generate`
+- API edge tests for invalid JSON/input, oversized payloads, and rate limiting
+
+The generation API also includes structured output validation, request-size limits, best-effort per-IP rate limiting, safe provider/timeout error mapping, and true section-only regeneration.
+
 ## Project Status
 
-🚧 In development.
+🚧 Production-ready codebase; deployment configuration remains environment-specific.
 
 - ✅ Phase 1: Premium responsive landing page
 - ✅ Phase 2: Generator workspace + structured OpenRouter integration
-- ⏳ Phase 3: Production QA, provider tuning, and deployment refinement
+- ✅ Phase 3: Production hardening, reproducible CI, build and smoke validation
+- ⏳ Phase 4: Vercel production deployment + production environment variables
 
 ## License
 
