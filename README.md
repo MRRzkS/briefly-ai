@@ -114,6 +114,9 @@ Never commit secrets or API keys.
 
 🚧 In development.
 
+- ✅ Phase 1: Premium responsive landing page
+- ⏳ Phase 2: Generator workspace and structured AI integration
+
 ## License
 
 This project is licensed under the [MIT License](./LICENSE).
