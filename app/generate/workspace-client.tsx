@@ -389,23 +389,27 @@ export default function WorkspaceClient() {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    try {
-      const draft = window.localStorage.getItem(DRAFT_KEY);
-      const stored = window.localStorage.getItem(HISTORY_KEY);
+    const frame = window.requestAnimationFrame(() => {
+      try {
+        const draft = window.localStorage.getItem(DRAFT_KEY);
+        const stored = window.localStorage.getItem(HISTORY_KEY);
 
-      if (draft) {
-        setIdea(draft);
-      }
-
-      if (stored) {
-        const parsed = JSON.parse(stored) as HistoryEntry[];
-        if (Array.isArray(parsed)) {
-          setHistory(parsed.slice(0, 8));
+        if (draft) {
+          setIdea(draft);
         }
+
+        if (stored) {
+          const parsed = JSON.parse(stored) as HistoryEntry[];
+          if (Array.isArray(parsed)) {
+            setHistory(parsed.slice(0, 8));
+          }
+        }
+      } catch {
+        // Local storage is optional; the workspace remains usable without it.
       }
-    } catch {
-      // Local storage is optional; the workspace remains usable without it.
-    }
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
