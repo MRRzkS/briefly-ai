@@ -26,18 +26,20 @@ Task Breakdown
 
 ## Core Features
 
+- Premium Apple-esque landing page
+- Generator workspace at `/generate`
 - Generate a structured project brief from a rough software idea
 - Generate functional requirements
 - Generate user stories
 - Generate acceptance criteria
 - Generate implementation task breakdowns
-- Regenerate individual sections without rebuilding the entire result
-- Copy generated sections
-- Export output as Markdown
-- Optional local history using `localStorage`
-- Structured AI responses validated before rendering
-- Clear loading, empty, success, and error states
-- Responsive, accessible, production-oriented UI
+- Regenerate individual sections
+- Copy the active generated artifact
+- Export the complete plan as Markdown
+- Local draft + recent plan history using `localStorage`
+- Structured AI responses validated with Zod before rendering
+- Clear loading, empty, success, and provider error states
+- Responsive desktop/mobile workspace with Compose / Output parity
 
 ## Tech Stack
 
@@ -102,11 +104,21 @@ npm install
 npm run dev
 ```
 
-Create a local environment file when AI integration is added:
+Create the local environment file:
 
 ```bash
 cp .env.example .env.local
 ```
+
+Configure OpenRouter:
+
+```env
+OPENROUTER_API_KEY=your_key
+OPENROUTER_MODEL=google/gemini-2.5-flash
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+The provider request runs server-side through `/api/generate`; API keys are never sent to the browser. Change `OPENROUTER_MODEL` without changing the workspace UI or route contract.
 
 Never commit secrets or API keys.
 
@@ -115,7 +127,8 @@ Never commit secrets or API keys.
 🚧 In development.
 
 - ✅ Phase 1: Premium responsive landing page
-- ⏳ Phase 2: Generator workspace and structured AI integration
+- ✅ Phase 2: Generator workspace + structured OpenRouter integration
+- ⏳ Phase 3: Production QA, provider tuning, and deployment refinement
 
 ## License
 
