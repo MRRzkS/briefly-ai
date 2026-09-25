@@ -428,15 +428,19 @@ export default function WorkspaceClient() {
   const isLoading = loading !== null;
 
   function persistHistory(nextIdea: string, nextPlan: BriefPlan) {
-    const entry: HistoryEntry = {
-      id: crypto.randomUUID(),
-      idea: nextIdea,
-      plan: nextPlan,
-      createdAt: new Date().toISOString(),
-    };
-
     setHistory((current) => {
-      const next = [entry, ...current].slice(0, 8);
+      const existing = current.find((entry) => entry.idea === nextIdea);
+      const entry: HistoryEntry = {
+        id: existing?.id ?? crypto.randomUUID(),
+        idea: nextIdea,
+        plan: nextPlan,
+        createdAt: new Date().toISOString(),
+      };
+
+      const next = [
+        entry,
+        ...current.filter((item) => item.idea !== nextIdea),
+      ].slice(0, 8);
 
       try {
         window.localStorage.setItem(HISTORY_KEY, JSON.stringify(next));
@@ -473,13 +477,15 @@ export default function WorkspaceClient() {
         }),
       });
 
-      const payload = (await response.json()) as {
+      const payload = (await response.json().catch(() => null)) as {
         plan?: BriefPlan;
         error?: string;
-      };
+      } | null;
 
-      if (!response.ok || !payload.plan) {
-        throw new Error(payload.error ?? "Unable to generate the software plan.");
+      if (!response.ok || !payload?.plan) {
+        throw new Error(
+          payload?.error ?? "Unable to generate the software plan. Please retry.",
+        );
       }
 
       setPlan(payload.plan);
@@ -527,9 +533,15 @@ export default function WorkspaceClient() {
       return;
     }
 
-    await navigator.clipboard.writeText(artifactToText(activeArtifact, plan));
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1500);
+    try {
+      await navigator.clipboard.writeText(
+        artifactToText(activeArtifact, plan),
+      );
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1500);
+    } catch {
+      setError("Unable to copy this artifact. Please try again.");
+    }
   }
 
   function exportMarkdown() {
