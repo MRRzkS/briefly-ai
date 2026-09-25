@@ -237,7 +237,7 @@ export default function Home() {
                 <div className="product-progress" aria-hidden="true">
                   <span />
                 </div>
-                <span className="text-[10px] font-semibold text-[#8F83FF]">
+                <span className="text-[10px] font-semibold text-[#6E5CFF]">
                   Ready
                 </span>
               </div>
