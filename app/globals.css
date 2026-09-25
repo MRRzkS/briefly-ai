@@ -441,8 +441,8 @@ button {
 
 .editorial-step {
   position: relative;
-  min-height: 14.75rem;
-  padding: 1.25rem 1.45rem 1.5rem;
+  min-height: 12.75rem;
+  padding: 1.15rem 1.35rem 1.35rem;
   border-right: 1px solid rgba(245, 245, 247, 0.055);
 }
 
@@ -499,7 +499,7 @@ button {
   grid-row: span 2;
   grid-template-columns: minmax(0, 1.08fr) minmax(13rem, 0.72fr);
   gap: 2rem;
-  min-height: 29.5rem;
+  min-height: 26.5rem;
   align-items: center;
   border-radius: 2rem;
   padding: 3rem;
@@ -598,7 +598,7 @@ button {
 }
 
 .output-support {
-  min-height: 14.25rem;
+  min-height: 12.75rem;
   border-radius: 1.65rem;
   padding: 2rem;
 }
@@ -794,7 +794,7 @@ button {
   }
 
   .marketing-moment {
-    min-height: 68svh;
+    min-height: 62svh;
   }
 
   .marketing-grid {
@@ -821,7 +821,7 @@ button {
   }
 
   .layer-name {
-    font-size: 0.6rem;
+    font-size: 0.64rem;
     line-height: 1.08;
     color: rgba(11, 13, 18, 0.58);
   }
@@ -831,7 +831,7 @@ button {
   }
 
   .editorial-step {
-    min-height: 11.25rem;
+    min-height: 10.5rem;
     padding: 1rem 0.65rem 1.1rem;
   }
 
@@ -845,7 +845,7 @@ button {
 
   .output-anchor {
     grid-template-columns: minmax(0, 1.1fr) minmax(6.7rem, 0.7fr);
-    min-height: 13.75rem;
+    min-height: 13rem;
     padding: 1rem;
   }
 
@@ -866,7 +866,7 @@ button {
   }
 
   .output-support {
-    min-height: 10rem;
+    min-height: 9.5rem;
     padding: 1rem;
   }
 }
@@ -883,5 +883,25 @@ button {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .layer-name {
+    font-size: 0.76rem;
+  }
+
+  .layer-index {
+    font-size: 0.6rem;
+  }
+
+  .editorial-step p {
+    max-width: 18rem;
+  }
+
+  .output-anchor,
+  .output-support {
+    box-shadow: inset 0 1px 0 rgba(245, 245, 247, 0.02);
   }
 }
