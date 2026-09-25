@@ -248,12 +248,12 @@ export default function Home() {
 
       <section
         id="about"
-        className="marketing-moment relative flex min-h-[80svh] items-center overflow-hidden bg-[#F5F5F7] text-[#0B0D12]"
+        className="marketing-moment relative flex min-h-[72svh] items-center overflow-hidden bg-[#F5F5F7] text-[#0B0D12]"
       >
         <div className="marketing-grid" aria-hidden="true" />
         <div className="marketing-aura" aria-hidden="true" />
 
-        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32 xl:px-16">
+        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24 lg:px-12 lg:py-24 xl:px-16">
           <p className="reveal-on-scroll text-[10px] font-semibold uppercase tracking-[0.2em] text-black/30 sm:text-xs">
             From ambiguity to alignment
           </p>
@@ -279,7 +279,7 @@ export default function Home() {
 
       <section
         id="workflow"
-        className="relative mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32 xl:px-16"
+        className="relative mx-auto max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24 lg:px-12 lg:py-24 xl:px-16"
       >
         <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
           <div>
@@ -296,7 +296,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="editorial-steps mt-14 sm:mt-20 lg:mt-24">
+        <div className="editorial-steps mt-12 sm:mt-16 lg:mt-18">
           {workflow.map((step) => (
             <article key={step.number} className="editorial-step">
               <span className="step-number">{step.number}</span>
@@ -314,7 +314,7 @@ export default function Home() {
       </section>
 
       <section id="outputs" className="relative">
-        <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-32 xl:px-16">
+        <div className="mx-auto max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24 lg:px-12 lg:py-24 xl:px-16">
           <div className="mx-auto max-w-5xl text-center">
             <p className="section-kicker">Structured output</p>
             <h2 className="section-title mt-4">
@@ -327,7 +327,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="output-showcase mt-12 sm:mt-16 lg:mt-24">
+          <div className="output-showcase mt-10 sm:mt-14 lg:mt-16">
             <article className="output-anchor">
               <div className="output-anchor-copy">
                 <span className="output-eyebrow">Define</span>
@@ -402,7 +402,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-[1440px] px-5 pb-20 pt-4 sm:px-8 sm:pb-28 lg:px-12 lg:pb-32 xl:px-16">
+      <section className="relative mx-auto max-w-[1440px] px-5 pb-16 pt-0 sm:px-8 sm:pb-24 lg:px-12 lg:pb-24 xl:px-16">
         <div className="liquid-glass cta-panel relative overflow-hidden rounded-[2rem] px-6 py-16 text-center sm:px-10 sm:py-24 lg:px-16 lg:py-28">
           <div className="cta-glow" aria-hidden="true" />
 
